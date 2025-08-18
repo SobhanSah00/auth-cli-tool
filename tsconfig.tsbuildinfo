@@ -1,1 +1,1 @@
-{"root":["./src/index.ts"],"version":"5.9.2"}
+{"root":["./src/app.ts","./src/index.ts","./src/bin/index.ts","./src/templates/express-mongo-jwt/controller/auth.controller.ts","./src/templates/express-mongo-jwt/db/database.ts","./src/templates/express-mongo-jwt/middleware/auth.middleware.ts","./src/templates/express-mongo-jwt/model/user.model.ts","./src/templates/express-mongo-jwt/routes/auth.routes.ts","./src/templates/express-mongo-jwt/utils/hash.util.ts","./src/templates/express-mongo-jwt/utils/jwt.util.ts"],"version":"5.9.2"}

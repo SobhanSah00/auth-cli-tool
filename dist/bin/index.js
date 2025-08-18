@@ -6,6 +6,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
+import "./templates/express-mongo-jwt/db/database.js";
 program
     .option("--db <type>", "Database type (mongo or prisma)")
     .option("--auth <type>", "Auth type (jwt or cookie)")
