@@ -1,4 +1,5 @@
-// require('dotenv').config({path: './env'})
+#!/usr/bin/env node
+import path from "path";
 import dotenv from 'dotenv'
 import {connectDB} from "./templates/express-mongo-jwt/db/database.js";
 import { app } from "./app.js"

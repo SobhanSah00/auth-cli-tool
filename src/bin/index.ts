@@ -1,3 +1,4 @@
+#!/usr/bin/env node
 import { program } from "commander";
 import inquirer from "inquirer";
 import chalk from "chalk";
@@ -7,8 +8,6 @@ import { fileURLToPath } from "url";
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
-
-import "./templates/express-mongo-jwt/db/database.js"; 
 
 program
   .option("--db <type>", "Database type (mongo or prisma)")
@@ -44,7 +43,7 @@ async function run() {
 
   console.log(chalk.green(`🚀 Generating Express auth with ${db} + ${auth}...`));
 
-  const templatePath = path.join(__dirname, `../templates/express-${db}-${auth}`);
+  const templatePath = path.resolve(__dirname, `../../src/templates/express-${db}-${auth}`);
   const targetPath = path.join(process.cwd(), "auth");
 
   if (!fs.existsSync(templatePath)) {
@@ -53,7 +52,11 @@ async function run() {
   }
 
   fs.cpSync(templatePath, targetPath, { recursive: true });
+
+  const files = fs.readdirSync(targetPath);
   console.log(chalk.blue(`✅ Auth boilerplate generated at ${targetPath}`));
+  console.log(chalk.yellow("📂 Files generated:"));
+  files.forEach(f => console.log(" - " + f));
 }
 
 run();
