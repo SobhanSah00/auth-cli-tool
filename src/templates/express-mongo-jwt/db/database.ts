@@ -4,7 +4,7 @@ const DB_NAME = "auth-mongo-jwt"
 
 export const connectDB = async (): Promise<void> => {
   try {
-        const connectionInstance = await mongoose.connect(`${process.env.MONGO_URI}/${DB_NAME}`)
+        const connectionInstance = await mongoose.connect(`${process.env.DB_URL}/${DB_NAME}`)
         console.log(`\n MONGODB CONNECTED !! DB HOST: ${connectionInstance.connection.host}`);
         // console.log(connectionInstance)
     } catch(error) {

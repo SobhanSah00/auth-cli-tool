@@ -18,6 +18,17 @@ program
 
 const options = program.opts();
 
+function generateEnv(targetPath: string) {
+  const envContent = `# Environment variables
+      PORT=8080
+      DB_URL= put your own connection url mongo/postgres/sql
+      JWT_SECRET=auth-cli-tool
+      `;
+
+  fs.writeFileSync(path.join(targetPath, ".env"), envContent);
+  console.log("✅ .env file created at root of project");
+}
+
 async function run() {
   let db: string = options.db;
   let auth: string = options.auth;
@@ -59,6 +70,8 @@ async function run() {
   console.log(chalk.blue(`✅ Auth boilerplate generated at ${targetPath}`));
   console.log(chalk.yellow("📂 Files generated:"));
   files.forEach(f => console.log(" - " + f));
+
+  generateEnv('auth')
 
   const deps = ["express", "mongoose", "jsonwebtoken", "bcryptjs", "cookie-parser"];
   const devDeps = ["@types/typescript", "ts-node", "@types/express", "@types/node", "@types/mongoose", "@types/jsonwebtoken", "@types/bcrypt"];
