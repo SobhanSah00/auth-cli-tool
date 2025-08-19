@@ -5,6 +5,8 @@ import chalk from "chalk";
 import fs from "fs";
 import path from "path";
 import { fileURLToPath } from "url";
+import { execSync } from "child_process";
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -57,6 +59,16 @@ async function run() {
   console.log(chalk.blue(`✅ Auth boilerplate generated at ${targetPath}`));
   console.log(chalk.yellow("📂 Files generated:"));
   files.forEach(f => console.log(" - " + f));
+
+  const deps = ["express", "mongoose", "jsonwebtoken", "bcryptjs", "cookie-parser"];
+  const devDeps = ["@types/typescript", "ts-node", "@types/express", "@types/node", "@types/mongoose", "@types/jsonwebtoken", "@types/bcrypt"];
+
+  console.log(chalk.green("📦 Installing project dependencies..."));
+  execSync(`npm install ${deps.join(" ")}`, { cwd: targetPath, stdio: "inherit" });
+
+  console.log(chalk.green("📦 Installing project devDependencies..."));
+  execSync(`npm install -D ${devDeps.join(" ")}`, { cwd: targetPath, stdio: "inherit" });
+
 }
 
 run();
