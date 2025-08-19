@@ -15,8 +15,8 @@ app.use(express.urlencoded({ extended: true, limit: "16mb" }));
 app.use(express.static("public"));
 app.use(cookieParser());
 
-import authMongoJwtRouter from "./templates/express-mongo-jwt/routes/auth.routes.js"
-import authMongoCookieRouter from "./templates/express-mongo-cookie/routes/auth.routes.js"
+import authMongoJwtRouter from "./templates/express-mongo-mongoose-jwt/routes/auth.routes.js"
+import authMongoCookieRouter from "./templates/express-mongo-mongoose-cookie/routes/auth.routes.js"
 
 app.use("/auth-mongo-jwt",authMongoJwtRouter)
 app.use("/auth-mongo-cookie",authMongoCookieRouter)

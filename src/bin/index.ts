@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 program
-  .option("--db <type>", "Database type (mongo or prisma)")
+  .option("--db <type>", "Database type (mongo or postgres)")
   .option("--auth <type>", "Auth type (jwt or cookie)")
   .parse(process.argv);
 
@@ -38,8 +38,8 @@ async function run() {
       {
         type: "list",
         name: "db",
-        message: "Which database do you want to use?",
-        choices: ["mongo", "prisma"],
+        message: "Which database and prisma do you want to use?",
+        choices: ["mongo-mongoose", "postgres-prisma"],
         when: () => !db,
       },
       {
