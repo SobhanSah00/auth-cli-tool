@@ -10,5 +10,6 @@
     "strict": true,
     "skipLibCheck": true
   },
-  "include": ["src", "bin/**/*"]
+  "include": ["src", "bin/**/*"],
+  "exclude": ["templates/express-postgres-prisma-cookie/src"]
 }
