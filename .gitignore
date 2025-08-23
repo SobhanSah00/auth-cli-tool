@@ -1,3 +1,4 @@
 node_modules
 .env
 \src\templates\express-postgres-prisma-cookie\src
+\dist
